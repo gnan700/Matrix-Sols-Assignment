@@ -114,5 +114,18 @@ Contributions are welcome! If you have any suggestions, bug reports, or want to 
 
 This project is licensed under the MIT License.
 
-## Deployment:  https://matrix-sols-assignment.onrender.com
+## Deployment Link:  https://matrix-sols-assignment.onrender.com
+
+## 🌐 Deployment
+
+This app is deployed on **Render** using:
+
+- Python 3.12.6
+- Flask 3.1.1
+- Gunicorn 23.0.0
+
+**Start Command:**
+```bash
+gunicorn wsgi:app
+
 
