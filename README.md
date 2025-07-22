@@ -99,6 +99,26 @@ The SQLite database (`urls.db`) and its necessary tables will be automatically c
 2.  This will take you to the analytics dashboard, where you can see a list of all shortened URLs, their original links, and their visit counts. You can also use the search bar to filter entries.
 
 ---
+
+
+## Deployment Link:  https://matrix-sols-assignment.onrender.com
+
+## 🌐 Deployment
+
+This app is deployed on **Render** using:
+
+- Python 3.12.6
+- Flask 3.1.1
+- Gunicorn 23.0.0
+
+**Start Command:**
+```bash
+gunicorn wsgi:app
+```
+--- 
+
+## 🤝 Contributing
+
 Contributions are welcome! If you have any suggestions, bug reports, or want to contribute code, please feel free to:
 
 1.  Fork the repository.
@@ -114,18 +134,4 @@ Contributions are welcome! If you have any suggestions, bug reports, or want to 
 
 This project is licensed under the MIT License.
 
-## Deployment Link:  https://matrix-sols-assignment.onrender.com
-
-## 🌐 Deployment
-
-This app is deployed on **Render** using:
-
-- Python 3.12.6
-- Flask 3.1.1
-- Gunicorn 23.0.0
-
-**Start Command:**
-```bash
-gunicorn wsgi:app
-
-
+---
