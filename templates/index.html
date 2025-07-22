@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>URL Shortener</h1>
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="post">
+      <input type="url" name="url" placeholder="Enter long URL" required>
+      <input type="text" name="custom_code" placeholder="Custom short code (optional)">
+      <button type="submit">Shorten</button>
+    </form>
+    {% if short_url %}
+      <div class="result">
+        <p>Short URL:</p>
+        <input type="text" readonly value="{{ short_url }}" onclick="this.select()">
+        <div class="qr-code">
+          <img src="data:image/png;base64,{{ qr_code }}">
+        </div>
+      </div>
+    {% endif %}
+    <div class="analytics-link">
+      <a href="{{ url_for('analytics') }}">🔍 View Analytics</a>
+    </div>
+  </div>
+</body>
+</html>

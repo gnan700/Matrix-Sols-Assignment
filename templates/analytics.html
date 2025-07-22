@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Analytics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8; /* light neutral */
+    margin: 0;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #334e68; /* dark teal-ish */
+  }
+
+  h1 {
+    text-align: center;
+    color: #0f766e; /* deep teal */
+    font-size: 2.25rem;
+    margin-bottom: 30px;
+  }
+
+  #searchInput {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #14b8a6; /* bright teal */
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #searchInput:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 8px rgba(20, 184, 166, 0.5);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 16px 22px;
+    text-align: left;
+    border-bottom: 1px solid #d9e2ec;
+    font-size: 15px;
+  }
+
+  th {
+    background-color: #fb6f61; /* coral */
+    color: white;
+    font-weight: 600;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  th:hover {
+    background-color: #f55a47; /* deeper coral */
+  }
+
+  tr:hover {
+    background-color: #f5f9fa; /* very light tealish */
+  }
+
+  .sortable::after {
+    content: " \25B2\25BC";
+    font-size: 12px;
+    color: #c1cbd9;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  a {
+    color: #14b8a6;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 30px;
+    color: #14b8a6;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #14b8a6;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background-color: #14b8a6;
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    th, td {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+    #searchInput {
+      padding: 10px;
+    }
+
+    .back-link {
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+  }
+</style>
+
+<body>
+  <div class="container">
+    <h1>Analytics</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Short Code</th>
+          <th>Original URL</th>
+          <th>Visits</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for url in urls %}
+          <tr>
+            <td>{{ url.short_code }}</td>
+            <td><a href="{{ url.original_url }}" target="_blank">{{ url.original_url }}</a></td>
+            <td>{{ url.visits }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="analytics-link">
+      <a href="{{ url_for('index') }}">⬅ Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>
